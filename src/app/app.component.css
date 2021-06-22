@@ -1,3 +1,62 @@
-p {
-  font-family: Lato;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.title {
+  text-align: center;
+  background: #ff0000;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 24px;
+}
+.sub-title {
+  text-align: center;
+  color: #ff0000;
+  font-weight: bold;
+  font-size: 22px;
+}
+.project-details {
+  width: 100%;
+}
+.project-container {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.text-center{
+ text-align: center;
+ font-weight: bold;
+}
+.form-table {
+  border: 1px solid;
+    margin: 0 auto;
+}
+.form-control{
+  background: #55BFE0;
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+}
+.Save-button{
+  padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: bold;
+    background-color: #58B957;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    margin-left: 40px;
+}
+.cancel-button{
+  padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: bold;
+    background-color: #808080;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    margin-left: 40px;
 }
