@@ -60,3 +60,15 @@
     color: white;
     margin-left: 40px;
 }
+.add-icon {
+      background: #29E329;
+    border-radius: 50%;
+    color: white;
+    font-size: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.text-align {
+text-align: center;
+}

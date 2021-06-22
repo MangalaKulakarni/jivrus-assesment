@@ -1,7 +1,8 @@
 <p class="title">Project Management</p>
 <div class="project-container">
   <p class="sub-title">Project Details</p>
-  <table border="1" class="project-details">
+  <p *ngIf="projects.length === 0" class="text-align">You do not have any project. Create your first project by clicking the plus button below</p>
+  <table border="1" class="project-details" *ngIf="projects.length > 0">
     <tr>
       <th>#</th>
       <th>Project Name</th>
@@ -10,34 +11,40 @@
       <th>Action</th>
     </tr>
     <tr>
-      <td>1</td>
-      <td>Mangala</td>
-      <td>Peter</td>
-      <td>America</td>
       <td></td>
-
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <span>Edit</span>&nbsp;
+        <span>Delete</span>
+      </td>
     </tr>
   </table>
+  <p>
+    <span class="add-icon" (click)="showForm=!showForm">&#43;</span>
+  </p>
 </div>
-<div>
-   <p class="sub-title">Add New Project</p>
-   <table class="form-table" cellpadding="12">  
-     <tr>
-       <td class="text-center">Project Name</td>
-       <td><input type="text" class="form-control"></td>
-     </tr>
-     <tr>
-       <td class="text-center">Customer Name</td>
-       <td><input type="text" class="form-control"></td>
-     </tr>
-     <tr>
-       <td class="text-center">Location</td>
-       <td><input type="text" class="form-control"></td>
-     </tr>
-     <tr>
-       <td class="text-center"><input type="button" class="Save-button" value="Save"></td>
-       <td class="text-center"><input type="button" class="cancel-button" value="Cancel"></td>
-
-     </tr>
-   </table>
+<div *ngIf="showForm">
+  <p class="sub-title">Add New Project</p>
+  <form [formGroup]="projectForm">
+    <table class="form-table" cellpadding="12">
+    <tr>
+      <td class="text-center">Project Name</td>
+      <td><input type="text" formControlName="projectName" class="form-control"></td>
+    </tr>
+    <tr>
+      <td class="text-center">Customer Name</td>
+      <td><input type="text" formControlName="customerName" class="form-control"></td>
+    </tr>
+    <tr>
+      <td class="text-center">Location</td>
+      <td><input type="text" formControlName="location" class="form-control"></td>
+    </tr>
+    <tr>
+      <td class="text-center"><input type="submit" (click)="onsubmit()" class="Save-button" value="Save"></td>
+      <td class="text-center"><input type="reset" class="cancel-button" value="Cancel"></td>
+    </tr>
+  </table>
+  </form>
 </div>
