@@ -1,6 +1,5 @@
 import { Component, VERSION } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { noop } from 'rxjs';
 
 @Component({
   selector: 'my-app',
@@ -11,6 +10,8 @@ export class AppComponent {
   showForm = false;
   projects = [];
   projectForm: FormGroup;
+  edit= false;
+  editIndex;
   
   constructor() {
     this.projectForm= new FormGroup({
@@ -21,6 +22,30 @@ export class AppComponent {
   }
 
   onsubmit() {
+    if(this.edit === false) {
     this.projects.push(this.projectForm.value);
+    this.projectForm.reset();
+    this.showForm=false;
+    } else {
+      this.projects[this.editIndex] = this.projectForm.value;
+      this.oncancel();
+    }
+  }
+  oncancel()
+  {
+    this.projectForm.reset();
+    this.showForm=false;
+  }
+  ondelete(index)
+  {
+    this.projects.splice(index,1)
+  }
+  onedit(index)
+  {
+    this.showForm=true;
+    this.edit= true;
+    this.editIndex= index; 
+    this.projectForm.patchValue(this.projects[index]);
   }
 }
+

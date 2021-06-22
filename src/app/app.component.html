@@ -1,7 +1,8 @@
 <p class="title">Project Management</p>
 <div class="project-container">
   <p class="sub-title">Project Details</p>
-  <p *ngIf="projects.length === 0" class="text-align">You do not have any project. Create your first project by clicking the plus button below</p>
+  <p *ngIf="projects.length === 0" class="text-align">You do not have any project. Create your first project by clicking
+    the plus button below</p>
   <table border="1" class="project-details" *ngIf="projects.length > 0">
     <tr>
       <th>#</th>
@@ -10,14 +11,18 @@
       <th>Location</th>
       <th>Action</th>
     </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr *ngFor="let project of projects; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{project.projectName}}</td>
+      <td>{{project.customerName}}</td>
+      <td>{{project.location}}</td>
       <td>
-        <span>Edit</span>&nbsp;
-        <span>Delete</span>
+        <span (click)="onedit(i)">
+          <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+        </span>&nbsp;
+        <span class="ondelete" (click)="ondelete(i)">
+          <i class="fa fa-trash"></i>
+        </span>
       </td>
     </tr>
   </table>
@@ -29,22 +34,22 @@
   <p class="sub-title">Add New Project</p>
   <form [formGroup]="projectForm">
     <table class="form-table" cellpadding="12">
-    <tr>
-      <td class="text-center">Project Name</td>
-      <td><input type="text" formControlName="projectName" class="form-control"></td>
-    </tr>
-    <tr>
-      <td class="text-center">Customer Name</td>
-      <td><input type="text" formControlName="customerName" class="form-control"></td>
-    </tr>
-    <tr>
-      <td class="text-center">Location</td>
-      <td><input type="text" formControlName="location" class="form-control"></td>
-    </tr>
-    <tr>
-      <td class="text-center"><input type="submit" (click)="onsubmit()" class="Save-button" value="Save"></td>
-      <td class="text-center"><input type="reset" class="cancel-button" value="Cancel"></td>
-    </tr>
-  </table>
+      <tr>
+        <td class="text-center">Project Name</td>
+        <td><input type="text" formControlName="projectName" class="form-control"></td>
+      </tr>
+      <tr>
+        <td class="text-center">Customer Name</td>
+        <td><input type="text" formControlName="customerName" class="form-control"></td>
+      </tr>
+      <tr>
+        <td class="text-center">Location</td>
+        <td><input type="text" formControlName="location" class="form-control"></td>
+      </tr>
+      <tr>
+        <td class="text-center"><input type="submit" (click)="onsubmit()" class="Save-button" value="Save"></td>
+        <td class="text-center"><input type="reset" (click)="oncancel()" class="cancel-button" value="Cancel"></td>
+      </tr>
+    </table>
   </form>
 </div>
